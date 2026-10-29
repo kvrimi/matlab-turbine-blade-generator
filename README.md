@@ -54,10 +54,10 @@ blade_profile
 
 ## 原理概览
 
-设中弧线为 $\mathbf c(s)$，$s$ 为弧长；单位切向、法向分别为 $\mathbf T$、$\mathbf N$，圆族半径为 $r(s)$。两侧包络的触点为：
+设中弧线为 **c(s)**，其中 `s` 为弧长；单位切向量、单位法向量分别记为 **T(s)** 和 **N(s)**，圆族半径记为 `r(s)`。两侧包络的触点为：
 
 $$
-\mathbf p_\pm(s)=\mathbf c(s)+r(s)\left[-r'(s)\mathbf T(s)\pm\sqrt{1-r'(s)^2}\mathbf N(s)\right].
+\mathbf{p}_\pm(s)=\mathbf{c}(s)+r(s)\left[-r'(s)\mathbf{T}(s)\pm\sqrt{1-r'(s)^2}\mathbf{N}(s)\right].
 $$
 
 当半径不变时，公式退化为沿法线两侧偏移；半径变化时还包含切向修正项。脚本用有限差分估算切线和半径变化率，以 PCHIP 插值控制半径分布，然后连接前后缘圆弧。推导与限制见 [算法说明](docs/algorithm.md)。

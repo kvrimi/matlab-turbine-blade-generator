@@ -4,7 +4,9 @@
 
 A=(0,0)，B=(By·tan α, By)。当前分支选取圆心：
 
-$$O=B+(-R\cos\alpha,\ R\sin\alpha).$$
+$$
+O=B+(-R\cos\alpha,\ R\sin\alpha).
+$$
 
 令 C=O+(R cos β, −R sin β)，D=(Cx+tan β·(Dy−Cy), Dy)。AB、BC、CD 依次连接；圆弧由 B 相对圆心的角度插值到 C 的角度。在上述角度范围和向下延伸条件下，两段直线与中间圆弧的切向一致，但曲率会在直线和圆弧之间发生跃变。
 
@@ -18,11 +20,23 @@ $$O=B+(-R\cos\alpha,\ R\sin\alpha).$$
 
 定义圆族隐式方程：
 
-$$F(\mathbf p,s)=\|\mathbf p-\mathbf c(s)\|^2-r(s)^2=0.$$
+$$
+F(\mathbf{p},s)=\|\mathbf{p}-\mathbf{c}(s)\|^2-r(s)^2=0.
+$$
 
-包络还需满足固定空间点下的偏导条件 $\partial F/\partial s=0$。记 $\mathbf u=(\mathbf p-\mathbf c)/r$，可得 $\mathbf u\cdot\mathbf T=-r'$，再由单位长度条件得到：
+包络还需满足固定空间点下的偏导条件。记 **u** 为圆心指向包络触点的单位向量，则有：
 
-$$\mathbf u=-r'\mathbf T\pm\sqrt{1-r'^2}\mathbf N.$$
+$$
+\frac{\partial F}{\partial s}=0,\qquad
+\mathbf{u}=\frac{\mathbf{p}-\mathbf{c}}{r},\qquad
+\mathbf{u}\cdot\mathbf{T}=-r'.
+$$
+
+再由单位长度条件得到：
+
+$$
+\mathbf{u}=-r'\mathbf{T}\pm\sqrt{1-r'^2}\mathbf{N}.
+$$
 
 脚本使用前向/后向/中心差分近似切向和 `dr/ds`。当 `abs(dr/ds)>=1` 时，当前实现停止并要求调整参数，而不是静默截断。满足这个条件也只是局部必要检查，不保证全局没有自交。
 
