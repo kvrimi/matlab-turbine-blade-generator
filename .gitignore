@@ -1,0 +1,14 @@
+/output/
+/tmp/
+*.asv
+*.swj
+*.sldprt
+*.sldasm
+*.slddrw
+*.SLDPRT
+*.SLDASM
+*.SLDDRW
+*.pdf
+*.mat
+.DS_Store
+Thumbs.db
